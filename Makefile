@@ -1,13 +1,18 @@
 CC = clang
 CFLAGS = -Wall -Wextra -Iinclude
 
-cgit: src/main.c
-	$(CC) $(CFLAGS) $^ -o cgit
+build: cgit
 
-test: cgit
+cgit: src/main.c
+	$(CC) $(CFLAGS) $^ -o $@
+
+run: build
+	./cgit
+
+test: build
 	test "$$(./cgit)" = "Hello, World!"
 
 clean:
 	rm -f cgit
 
-.PHONY: test clean
+.PHONY: build run test clean
