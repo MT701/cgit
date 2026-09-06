@@ -1,7 +1,7 @@
 CC = clang
 CFLAGS = -Wall -Wextra -Iinclude
 
-cgit: main.c
+cgit: src/main.c
 	$(CC) $(CFLAGS) $^ -o cgit
 
 test: cgit
